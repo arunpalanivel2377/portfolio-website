@@ -30,19 +30,21 @@
   top: 0;
   background-color: var(--dark);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ensure navbar stays above content */
+  z-index: 1000;
 }
 
 section {
   padding: 4rem 2rem;
-  padding-top: 8rem; /* Increased to ensure clearance, adjust based on navbar height */
-  position: relative; /* Ensure sections are in normal flow */
+  position: relative;
 }
 
-#contact {
-  padding: 4rem 2rem; /* No extra top padding for Contact Me */
+section > *:first-child {
+  margin-top: 6rem; /* Adjust based on navbar height (e.g., ~4rem + margin) */
 }
 
+#contact > *:first-child {
+  margin-top: 0; /* No extra margin for Contact Me */
+}
     .logo {
       font-family: 'Poppins', sans-serif;
       font-size: clamp(1.6rem, 4vw, 1.8rem);
