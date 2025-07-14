@@ -25,26 +25,24 @@
       --text: #1e293b;
     }
     body { background-color: var(--light); color: var(--text); }
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: var(--dark);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-      transition: background-color 0.3s, padding 0.3s;
-    }
-    nav.scrolled {
-      background-color: rgba(44, 62, 80, 0.95);
-      padding: 1rem;
-    }
-    .nav-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+      nav {
+  position: sticky;
+  top: 0;
+  background-color: var(--dark);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure navbar stays above content */
+}
+
+section {
+  padding: 4rem 2rem;
+  padding-top: 8rem; /* Increased to ensure clearance, adjust based on navbar height */
+  position: relative; /* Ensure sections are in normal flow */
+}
+
+#contact {
+  padding: 4rem 2rem; /* No extra top padding for Contact Me */
+}
+
     .logo {
       font-family: 'Poppins', sans-serif;
       font-size: clamp(1.6rem, 4vw, 1.8rem);
@@ -71,6 +69,15 @@
       background: linear-gradient(to bottom right, #f7e1b5, #ffffff);
       padding: 2rem;
     }
+    .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure it spans the container */
+  }
     .hero-content {
       max-width: 1200px;
       display: grid;
@@ -290,6 +297,15 @@
       background-color: #fee2e2;
       color: #991b1b;
     }
+    section {
+  padding: 4rem 2rem;
+  padding-top: 6rem; /* Adjusted to accommodate navbar height (e.g., ~4rem + margin) */
+  }
+
+  #contact {
+    padding: 4rem 2rem; /* No extra top padding for Contact Me */
+  }
+
     #back-to-top {
       position: fixed;
       bottom: 20px;
@@ -374,7 +390,7 @@
             <div class="skill-badge"><i class="fas fa-brain"></i> Machine Learning</div>
             <div class="skill-badge"><i class="fas fa-chart-bar"></i> Data Analysis</div>
             <div class="skill-badge"><i class="fas fa-code-branch"></i> DSA</div>
-            <div class="skill-badge"><i class="fas fa-puzzle-piece"></i> Problem Solv</div>
+            <div class="skill-badge"><i class="fas fa-puzzle-piece"></i> Problem Solving</div>
           </div>
           <div class="project-images" data-aos="fade-up" data-aos-delay="200">
             <img src="project1.jpg" alt="E-commerce Platform Screenshot" loading="lazy">
@@ -485,15 +501,13 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800 });
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
-      const btn = document.getElementById('back-to-top');
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-      btn.classList.toggle('show', window.scrollY > 200);
-    });
-    document.getElementById('back-to-top').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
+  btn.classList.toggle('show', window.scrollY > 200);
+});
+document.getElementById('back-to-top').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
   </script>
 </body>
 </html>
